@@ -1,19 +1,29 @@
-package week1.day2;
+package week2.day2;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignment2 {
 
 	public static void main(String[] args) {
-		
 		// TODO Auto-generated method stub
-		
-		for(int i=0;i<=20;i++)
-		{
-			if(i%2==1)
-			{
-				System.out.println(" The Number is odd number:"+i);
-			}
-			
-		}
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+		driver.findElement(By.id("username")).sendKeys("Demosalesmanager");
+		driver.findElement(By.id("password")).sendKeys("crmsfa");
+		driver.findElement(By.className("decorativeSubmit")).click();
+		driver.findElement(By.linkText("CRM/SFA")).click();
+		driver.findElement(By.linkText("Leads")).click();
+		driver.findElement(By.linkText("Create Lead")).click();
+		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("SeleniumTestingCompany");
+		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Aishwarya");
+		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("Rajasekaran");
+		driver.findElement(By.name("submitButton")).click();
+		driver.findElement(By.linkText("Edit")).click();
+		driver.findElement(By.id("updateLeadForm_companyName")).clear();
+		driver.findElement(By.id("updateLeadForm_companyName")).sendKeys("TestingCompany-Selenium");
+		driver.findElement(By.name("submitButton")).click();
 
 	}
 
